@@ -1,0 +1,2 @@
+TCPKeepAlive yes
+ServerAliveInterval 60
