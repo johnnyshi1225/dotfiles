@@ -2,14 +2,12 @@
 
 All config files that I need to initialize a development environment.
 
-## vim
+## Current supported
 
-    ~/.vimrc
+- .vimrc
+- .tmux.conf
+- .ssh/ssh_conf
 
-## tmux
+## Install
 
-    ~/.tmux.conf
-
-## ssh
-
-    ~/.ssh/ssh_conf
+    bash install.sh
