@@ -268,7 +268,7 @@ set clipboard=unnamed
 set pastetoggle=<leader>z
 
 " Quike quit & save
-"noremap <leader>q :q<CR>
+noremap <leader>q :q<CR>
 noremap <leader>x :x<CR>
 nnoremap <leader>w :w<CR>
 inoremap <leader>w <C-c>:w<CR>
@@ -279,6 +279,6 @@ nmap <F10> :tabn<CR>
 nmap <C-t> :tabnew<CR>
 nmap <F7> :bp<CR>
 nmap <F8> :bn<CR>
-nmap <leader>q :bp <BAR> bd #<CR>
+nmap <leader>b :bp <BAR> bd #<CR>
 
 set t_Co=256
