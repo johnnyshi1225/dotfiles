@@ -113,6 +113,7 @@ Plugin 'terryma/vim-multiple-cursors'
 
 " Golang
 Plugin 'fatih/vim-go'
+let g:go_bin_path = expand("~/workspace/golang/tools")
 
 " syntax check
 Plugin 'scrooloose/syntastic'
@@ -158,6 +159,9 @@ set  ruler
 
 " highlight current line
 set cursorline
+set cursorcolumn
+hi CursorLine   cterm=NONE ctermbg=234 ctermfg=NONE
+hi CursorColumn   cterm=NONE ctermbg=234 ctermfg=NONE
 
 " quick search
 set incsearch
@@ -241,15 +245,15 @@ func! SetTitle()
         call append(7, "\#########################################################################")
         call append(8, "")
         call append(9, "\# vim: set expandtab ts=4 sts=4 sw=4 :")
-    elseif &filetype == 'go'
-        call setline(1, "\//#########################################################################")
-        call append(1, "\// Author: Johnny Shi")
-        call append(2, "\// Created Time: ".strftime("%Y-%m-%d %H:%M:%S"))
-        call append(3, "\// File Name: ".expand("%"))
-        call append(4, "\// Description: ")
-        call append(5, "\//#########################################################################")
-        call append(6, "")
-        call append(7, "\// vim: set expandtab ts=4 sts=4 sw=4 :")
+    "elseif &filetype == 'go'
+    "    call setline(1, "\//#########################################################################")
+    "    call append(1, "\// Author: Johnny Shi")
+    "    call append(2, "\// Created Time: ".strftime("%Y-%m-%d %H:%M:%S"))
+    "    call append(3, "\// File Name: ".expand("%"))
+    "    call append(4, "\// Description: ")
+    "    call append(5, "\//#########################################################################")
+    "    call append(6, "")
+    "    call append(7, "\// vim: set expandtab ts=4 sts=4 sw=4 :")
     endif
 endfunc
 
@@ -276,7 +280,7 @@ inoremap <leader>w <C-c>:w<CR>
 " tab/buffer navigation
 nmap <F9> :tabp<CR>
 nmap <F10> :tabn<CR>
-nmap <C-t> :tabnew<CR>
+nmap <C-t> :tabedit %<CR>
 nmap <F7> :bp<CR>
 nmap <F8> :bn<CR>
 nmap <leader>b :bp <BAR> bd #<CR>
