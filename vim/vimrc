@@ -121,6 +121,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['flake8']
+nnoremap <leader>s : SyntasticToggleMode<CR>
 "Plugin 'kevinw/pyflakes-vim'
 
 " tab
@@ -160,7 +162,7 @@ set  ruler
 " highlight current line
 set cursorline
 set cursorcolumn
-hi CursorLine   cterm=NONE ctermbg=234 ctermfg=NONE
+hi CursorLine   cterm=NONE ctermbg=18 ctermfg=NONE
 hi CursorColumn   cterm=NONE ctermbg=234 ctermfg=NONE
 
 " quick search
