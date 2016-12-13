@@ -34,10 +34,11 @@ lnif $CURRENT_DIR/ssh/ssh_config $SSH_CONF_PATH
 
 
 echo "Link done!"
-exit 0
 
 
 echo "Step3: update/install plugins using Vundle"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+exit 0
 system_shell=$SHELL
 export SHELL="/bin/sh"
 vim -u $HOME/.vimrc.bundles +PlugInstall! +PlugClean! +qall
