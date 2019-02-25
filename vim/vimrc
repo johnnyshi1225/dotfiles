@@ -112,14 +112,19 @@ Plugin 'fatih/vim-go'
 let g:go_bin_path = expand("~/workspace/golang/tools")
 
 " syntax check
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501'
+let g:syntastic_php_checkers = ['phpcs']
+let g:syntastic_php_phpcs_args='--standard=PSR2 --exclude=Generic.Files.LineLength'
 nnoremap <leader>s : SyntasticToggleMode<CR>
+nnoremap <leader>n :lnext<CR>
+nnoremap <leader>p :lprevious<CR>
 "Plugin 'kevinw/pyflakes-vim'
 
 " tab
@@ -244,6 +249,9 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "===================== neocomplete end =======================
 
+" VUE syntax highlighting
+Plugin 'posva/vim-vue'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -354,12 +362,12 @@ func! SetTitle()
         call append(7, "")
     elseif &filetype == 'python'
         call setline(1, "\#!/usr/bin/env python")
-        call append(1, "\#-*- coding: utf-8 -*-")
+        call append(1, "\# -*- coding: utf-8 -*-")
         call append(2, "\#########################################################################")
         call append(3, "\# Author: Johnny Shi")
         call append(4, "\# Created Time: ".strftime("%Y-%m-%d %H:%M:%S"))
         call append(5, "\# File Name: ".expand("%"))
-        call append(6, "\# Description: ")
+        call append(6, "\# Description:")
         call append(7, "\#########################################################################")
         call append(8, "")
         call append(9, "\# vim: set expandtab ts=4 sts=4 sw=4 :")
@@ -402,5 +410,8 @@ nmap <C-t> :tabedit %<CR>
 nmap <F7> :bp<CR>
 nmap <F8> :bn<CR>
 nmap <leader>b :bp <BAR> bd #<CR>
+
+"" Refresh syntax from file's start
+nnoremap <leader>u :syntax sync fromstart<CR>
 
 set t_Co=256
