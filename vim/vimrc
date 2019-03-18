@@ -113,6 +113,7 @@ let g:go_fmt_command = "goimports"
 "let g:go_bin_path = expand("~/workspace/golang/tools")
 
 " syntax check
+"Plugin 'scrooloose/syntastic'
 Plugin 'vim-syntastic/syntastic'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -120,7 +121,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501'
+let g:syntastic_php_checkers = ['phpcs']
+let g:syntastic_php_phpcs_args='--standard=PSR2 --exclude=Generic.Files.LineLength'
 nnoremap <leader>s : SyntasticToggleMode<CR>
+nnoremap <leader>n :lnext<CR>
+nnoremap <leader>p :lprevious<CR>
 
 " tab
 "Plugin 'ervandew/supertab'
@@ -243,6 +248,9 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "===================== neocomplete end =======================
+
+" VUE syntax highlighting
+Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -402,5 +410,8 @@ nmap <C-t> :tabedit %<CR>
 nmap <F7> :bp<CR>
 nmap <F8> :bn<CR>
 nmap <leader>b :bp <BAR> bd #<CR>
+
+"" Refresh syntax from file's start
+nnoremap <leader>u :syntax sync fromstart<CR>
 
 set t_Co=256
